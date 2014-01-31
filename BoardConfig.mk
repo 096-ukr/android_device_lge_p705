@@ -1,8 +1,10 @@
+#ARM_EABI_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8/bin
+
 include device/lge/msm7x27a-common/BoardConfigCommon.mk
 
 LGE_PROJECT := l
 
-# Inherit from the proprietary version
+# inherit from the proprietary version
 -include vendor/lge/p705/BoardConfigVendor.mk
 
 TARGET_BOOTLOADER_BOARD_NAME := p705
@@ -12,20 +14,20 @@ BOARD_KERNEL_CMDLINE := androidboot.hardware=u0 lge.signed_image=false
 
 TARGET_PREBUILT_KERNEL := device/lge/p705/kernel
 
-# Kernel
+#kernel
 TARGET_KERNEL_SOURCE := kernel/lge/msm7x27a-common
 
 TARGET_KERNEL_CONFIG := cyanogenmod_u0_nonfc_defconfig
 
 TARGET_RECOVERY_FSTAB := device/lge/p705/recovery.fstab
 
-# We need this for the flipped screen
+## We need this for the flipped screen
 BOARD_CUSTOM_GRAPHICS := ../../../device/lge/p705/recovery/graphics.c
 
-# Bluetooth
+#bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/p705/bluetooth
 
-# TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
+#TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
 TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
@@ -53,14 +55,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.low_ram=true
 
-# Webkit
+## Webkit
 ENABLE_WEBGL := true
 TARGET_WEBKIT_USE_MORE_MEMORY := true
 PRODUCT_PREBUILT_WEBVIEWCHROMIUM := yes
 TARGET_FORCE_CPU_UPLOAD := true
 TARGET_ARCH_LOWMEM := true
 
-# FM
+##FM
 #BOARD_HAVE_QCOM_FM := true
 #BOARD_HAVE_QCOM_MR1_FM := true
 #COMMON_GLOBAL_CFLAGS += -DQCOM_MR1_FM
