@@ -2,7 +2,7 @@ $(call inherit-product, device/lge/msm7x27a-common/msm7x27a-common.mk)
 
 $(call inherit-product-if-exists, vendor/lge/p705/p705-vendor.mk)
 
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+DEVICE_PACKAGE_OVERLAYS += device/lge/p705/overlay
 
 $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
 
@@ -33,9 +33,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libwebcore
 
-# Bluetooth
+#bluetooth
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/bin/hwmac:system/bin/hwmac \
     $(LOCAL_PATH)/prebuilt/bin/hci_qcomm_init:system/bin/hci_qcomm_init \
     $(LOCAL_PATH)/prebuilt/lib/libbt-vendor.so:system/lib/libbt-vendor.so
+
+# Enable for debugging
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.debuggable=1 \
+    persist.service.adb.enable=1
 
