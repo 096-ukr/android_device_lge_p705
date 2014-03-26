@@ -32,7 +32,6 @@ PRODUCT_PACKAGES += \
 # LibWebCore
 PRODUCT_PACKAGES += \
     libwebcore \
-    FM2 \
     libqcomfm_jni \
     qcom.fmradio
 
